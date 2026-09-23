@@ -3,7 +3,7 @@ import {
   Download, Plus, Search, RefreshCw, Edit3, Check, X, Building2,
   Gift, Users, TrendingUp, DollarSign, CheckCircle2, Phone, Mail,
   Calendar, Award, FileText, ChevronRight, ShieldCheck,
-  ArrowRight, KeyRound, AlertCircle, Clock
+  ArrowRight, KeyRound, AlertCircle, Clock, Stethoscope, GraduationCap
 } from 'lucide-react';
 import PortalSidebar from '../components/PortalSidebar';
 
@@ -608,35 +608,38 @@ export default function AdminTracker({ onOpenAddModal, onEditOpportunity, curren
 
                 <button
                   onClick={() => setSelectedEntity('ottobon')}
-                  className={`px-3 py-1.5 rounded-xl text-xs font-bold transition ${
+                  className={`px-3 py-1.5 rounded-xl text-xs font-bold transition inline-flex items-center gap-1.5 ${
                     selectedEntity === 'ottobon'
                       ? 'bg-blue-600 text-white shadow-xs'
                       : 'text-blue-700 bg-blue-50 hover:bg-blue-100 border border-blue-200'
                   }`}
                 >
-                  🎓 Ottobon Academy
+                  <GraduationCap className="w-3.5 h-3.5" />
+                  <span>Ottobon Academy</span>
                 </button>
 
                 <button
                   onClick={() => setSelectedEntity('medcy')}
-                  className={`px-3 py-1.5 rounded-xl text-xs font-bold transition ${
+                  className={`px-3 py-1.5 rounded-xl text-xs font-bold transition inline-flex items-center gap-1.5 ${
                     selectedEntity === 'medcy'
                       ? 'bg-emerald-600 text-white shadow-xs'
                       : 'text-emerald-700 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200'
                   }`}
                 >
-                  🏥 Medcy Health Tech
+                  <Stethoscope className="w-3.5 h-3.5" />
+                  <span>Medcy Health Tech</span>
                 </button>
 
                 <button
                   onClick={() => setSelectedEntity('sbloom')}
-                  className={`px-3 py-1.5 rounded-xl text-xs font-bold transition ${
+                  className={`px-3 py-1.5 rounded-xl text-xs font-bold transition inline-flex items-center gap-1.5 ${
                     selectedEntity === 'sbloom'
                       ? 'bg-purple-600 text-white shadow-xs'
                       : 'text-purple-700 bg-purple-50 hover:bg-purple-100 border border-purple-200'
                   }`}
                 >
-                  🌸 sBloom
+                  <TrendingUp className="w-3.5 h-3.5" />
+                  <span>sBloom</span>
                 </button>
               </div>
 

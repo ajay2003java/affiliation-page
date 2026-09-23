@@ -645,7 +645,10 @@ export default function ClientAdminPortal({ currentUser }) {
                           : 'border-slate-200 hover:bg-slate-50'
                       }`}
                     >
-                      <div className="font-bold text-xs">🎓 Ottobon Academy</div>
+                      <div className="font-bold text-xs flex items-center gap-1.5">
+                        <GraduationCap className="w-3.5 h-3.5 text-blue-600" />
+                        <span>Ottobon Academy</span>
+                      </div>
                       <div className="text-[10px] text-slate-500">Admissions Portal & Institute Tech</div>
                     </button>
 
@@ -658,7 +661,10 @@ export default function ClientAdminPortal({ currentUser }) {
                           : 'border-slate-200 hover:bg-slate-50'
                       }`}
                     >
-                      <div className="font-bold text-xs">🏥 Medcy Health Tech</div>
+                      <div className="font-bold text-xs flex items-center gap-1.5">
+                        <Stethoscope className="w-3.5 h-3.5 text-emerald-600" />
+                        <span>Medcy Health Tech</span>
+                      </div>
                       <div className="text-[10px] text-slate-500">Clinic CRM & Patient Growth</div>
                     </button>
 
@@ -671,7 +677,10 @@ export default function ClientAdminPortal({ currentUser }) {
                           : 'border-slate-200 hover:bg-slate-50'
                       }`}
                     >
-                      <div className="font-bold text-xs">🌸 sBloom</div>
+                      <div className="font-bold text-xs flex items-center gap-1.5">
+                        <TrendingUp className="w-3.5 h-3.5 text-purple-600" />
+                        <span>sBloom</span>
+                      </div>
                       <div className="text-[10px] text-slate-500">Social Media & Authority</div>
                     </button>
                   </div>

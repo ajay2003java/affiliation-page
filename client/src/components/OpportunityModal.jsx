@@ -204,8 +204,8 @@ export default function OpportunityModal({ isOpen, onClose, onSave, initialData,
           {/* Sleek Segmented Switcher (Only for Independent Users and Super Admins) */}
           {!isEntityAdmin && (
             <div>
-              <div className="text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-2">
-                Who are you referring today?
+              <div className="text-[11px] font-bold text-slate-500 uppercase tracking-wider mb-2">
+                Referral Intake Category
               </div>
               <div className="grid grid-cols-3 gap-1.5 p-1 bg-slate-100 rounded-2xl border border-slate-200">
                 <button
@@ -217,9 +217,9 @@ export default function OpportunityModal({ isOpen, onClose, onSave, initialData,
                       : 'text-slate-600 hover:text-slate-900'
                   }`}
                 >
-                  <span>🚀</span>
-                  <span className="hidden sm:inline">To Our Company</span>
-                  <span className="sm:hidden">Company</span>
+                  <Building2 className="w-3.5 h-3.5 text-blue-600" />
+                  <span className="hidden sm:inline">B2B Enterprise</span>
+                  <span className="sm:hidden">Corporate</span>
                 </button>
 
                 <button
@@ -231,9 +231,9 @@ export default function OpportunityModal({ isOpen, onClose, onSave, initialData,
                       : 'text-slate-600 hover:text-slate-900'
                   }`}
                 >
-                  <span>🏥</span>
-                  <span className="hidden sm:inline">Patient to Hospital</span>
-                  <span className="sm:hidden">Hospital</span>
+                  <Stethoscope className="w-3.5 h-3.5 text-emerald-600" />
+                  <span className="hidden sm:inline">Patient Admission</span>
+                  <span className="sm:hidden">Healthcare</span>
                 </button>
 
                 <button
@@ -245,9 +245,9 @@ export default function OpportunityModal({ isOpen, onClose, onSave, initialData,
                       : 'text-slate-600 hover:text-slate-900'
                   }`}
                 >
-                  <span>🎓</span>
-                  <span className="hidden sm:inline">Student to College</span>
-                  <span className="sm:hidden">College</span>
+                  <GraduationCap className="w-3.5 h-3.5 text-indigo-600" />
+                  <span className="hidden sm:inline">Student Admission</span>
+                  <span className="sm:hidden">Academic</span>
                 </button>
               </div>
             </div>
@@ -256,7 +256,7 @@ export default function OpportunityModal({ isOpen, onClose, onSave, initialData,
           {/* 1. If Patient Referral: Single Clean Hospital Selector */}
           {referralTargetType === 'HOSPITAL_INTAKE' && (
             <div>
-              <label className="block font-bold text-slate-700 mb-1">Select Partner Hospital *</label>
+              <label className="block font-bold text-slate-700 mb-1">Select Partner Hospital / Medical Facility *</label>
               <select
                 value={formData.target_organization_id}
                 onChange={(e) => handleOrganizationChange(e.target.value)}
@@ -275,13 +275,13 @@ export default function OpportunityModal({ isOpen, onClose, onSave, initialData,
           {/* 2. If Student Referral: Single Clean College Selector */}
           {referralTargetType === 'COLLEGE_INTAKE' && (
             <div>
-              <label className="block font-bold text-slate-700 mb-1">Select Partner College / Institute *</label>
+              <label className="block font-bold text-slate-700 mb-1">Select Partner College / Educational Institute *</label>
               <select
                 value={formData.target_organization_id}
                 onChange={(e) => handleOrganizationChange(e.target.value)}
                 className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 bg-white font-bold text-slate-900 focus:ring-2 focus:ring-indigo-500 outline-none"
               >
-                <option value="">-- Choose Tied-up College --</option>
+                <option value="">-- Choose Tied-up Institution --</option>
                 {collegeOrgs.map(org => (
                   <option key={org.id} value={org.id}>
                     {org.name}
@@ -294,7 +294,7 @@ export default function OpportunityModal({ isOpen, onClose, onSave, initialData,
           {/* 3. If Company Referral: Brand Selector */}
           {(referralTargetType === 'COMPANY' || isEntityAdmin) && (
             <div>
-              <label className="block font-bold text-slate-700 mb-1.5">Target Brand Solution *</label>
+              <label className="block font-bold text-slate-700 mb-1.5">Target Business Solution *</label>
               <div className="grid grid-cols-3 gap-2">
                 <button
                   type="button"
@@ -305,8 +305,11 @@ export default function OpportunityModal({ isOpen, onClose, onSave, initialData,
                       : 'border-slate-200 hover:bg-slate-50'
                   }`}
                 >
-                  <div className="font-bold text-xs flex items-center gap-1">🎓 Ottobon</div>
-                  <div className="text-[10px] text-slate-500 mt-0.5">Edutech & Schools</div>
+                  <div className="font-bold text-xs flex items-center gap-1.5 text-blue-900">
+                    <GraduationCap className="w-3.5 h-3.5 text-blue-600" />
+                    <span>Ottobon</span>
+                  </div>
+                  <div className="text-[10px] text-slate-500 mt-0.5">Edutech & Institutions</div>
                 </button>
 
                 <button
@@ -318,8 +321,11 @@ export default function OpportunityModal({ isOpen, onClose, onSave, initialData,
                       : 'border-slate-200 hover:bg-slate-50'
                   }`}
                 >
-                  <div className="font-bold text-xs flex items-center gap-1">🏥 Medcy</div>
-                  <div className="text-[10px] text-slate-500 mt-0.5">Clinic & Hospital Tech</div>
+                  <div className="font-bold text-xs flex items-center gap-1.5 text-emerald-900">
+                    <Stethoscope className="w-3.5 h-3.5 text-emerald-600" />
+                    <span>Medcy</span>
+                  </div>
+                  <div className="text-[10px] text-slate-500 mt-0.5">Healthcare & Hospitals</div>
                 </button>
 
                 <button
@@ -331,8 +337,11 @@ export default function OpportunityModal({ isOpen, onClose, onSave, initialData,
                       : 'border-slate-200 hover:bg-slate-50'
                   }`}
                 >
-                  <div className="font-bold text-xs flex items-center gap-1">🌸 sBloom</div>
-                  <div className="text-[10px] text-slate-500 mt-0.5">Social Media Growth</div>
+                  <div className="font-bold text-xs flex items-center gap-1.5 text-purple-900">
+                    <TrendingUp className="w-3.5 h-3.5 text-purple-600" />
+                    <span>sBloom</span>
+                  </div>
+                  <div className="text-[10px] text-slate-500 mt-0.5">Brand & Media Growth</div>
                 </button>
               </div>
             </div>
@@ -341,25 +350,27 @@ export default function OpportunityModal({ isOpen, onClose, onSave, initialData,
           {/* Attribution Switch (Super Admin Only) */}
           {isSuperAdmin && (
             <div>
-              <label className="block font-bold text-slate-700 mb-1">Lead Type</label>
+              <label className="block font-bold text-slate-700 mb-1">Lead Attribution</label>
               <div className="grid grid-cols-2 gap-2">
                 <button
                   type="button"
                   onClick={() => setFormData({ ...formData, lead_origin: 'own', referring_user_id: null })}
-                  className={`py-2 px-3 rounded-xl border font-bold text-xs text-left transition ${
+                  className={`py-2 px-3 rounded-xl border font-bold text-xs text-left transition flex items-center gap-2 ${
                     formData.lead_origin === 'own' ? 'bg-blue-50 border-blue-500 text-blue-900' : 'border-slate-200 text-slate-600'
                   }`}
                 >
-                  🏢 Own Company Lead
+                  <Building2 className="w-3.5 h-3.5 text-blue-600" />
+                  <span>Internal Company Lead</span>
                 </button>
                 <button
                   type="button"
                   onClick={() => setFormData({ ...formData, lead_origin: 'referral' })}
-                  className={`py-2 px-3 rounded-xl border font-bold text-xs text-left transition ${
+                  className={`py-2 px-3 rounded-xl border font-bold text-xs text-left transition flex items-center gap-2 ${
                     formData.lead_origin === 'referral' ? 'bg-purple-50 border-purple-500 text-purple-900' : 'border-slate-200 text-slate-600'
                   }`}
                 >
-                  🎁 Partner Referral
+                  <Gift className="w-3.5 h-3.5 text-purple-600" />
+                  <span>Partner Referral</span>
                 </button>
               </div>
             </div>

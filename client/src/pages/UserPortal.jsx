@@ -102,24 +102,36 @@ export default function UserPortal({ currentUser, onOpenSubmitModal }) {
   const getStatusBadge = (status) => {
     switch (status) {
       case 'CONVERTED':
-        return <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800 border border-emerald-200">✓ Converted</span>;
+        return <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800 border border-emerald-200"><CheckCircle2 className="w-3 h-3" /> Converted</span>;
       case 'PROPOSAL SENT':
-        return <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-bold bg-blue-100 text-blue-800 border border-blue-200">📄 Proposal Sent</span>;
+        return <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-bold bg-blue-100 text-blue-800 border border-blue-200"><FileText className="w-3 h-3" /> Proposal Sent</span>;
       case 'IN DISCUSSION':
-        return <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-bold bg-purple-100 text-purple-800 border border-purple-200">💬 In Discussion</span>;
+        return <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-bold bg-purple-100 text-purple-800 border border-purple-200"><Users className="w-3 h-3" /> In Discussion</span>;
       case 'CONTACTED':
-        return <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-bold bg-indigo-100 text-indigo-800 border border-indigo-200">📞 Contacted</span>;
+        return <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-bold bg-indigo-100 text-indigo-800 border border-indigo-200"><Phone className="w-3 h-3" /> Contacted</span>;
       case 'NOT CONVERTED':
-        return <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-bold bg-rose-100 text-rose-800 border border-rose-200">✕ Closed</span>;
+        return <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-bold bg-rose-100 text-rose-800 border border-rose-200">Closed</span>;
       default:
-        return <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-bold bg-amber-100 text-amber-800 border border-amber-200">⏳ In Progress</span>;
+        return <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-bold bg-amber-100 text-amber-800 border border-amber-200"><Clock className="w-3 h-3" /> In Progress</span>;
     }
   };
 
   const getEntityBadge = (entityId) => {
-    if (entityId === 'ottobon') return <span className="text-[11px] font-bold px-2 py-0.5 rounded-md bg-blue-50 text-blue-700 border border-blue-200">🎓 Ottobon Academy</span>;
-    if (entityId === 'medcy') return <span className="text-[11px] font-bold px-2 py-0.5 rounded-md bg-emerald-50 text-emerald-700 border border-emerald-200">🏥 City Care Hospital</span>;
-    return <span className="text-[11px] font-bold px-2 py-0.5 rounded-md bg-purple-50 text-purple-700 border border-purple-200">🌸 sBloom Growth</span>;
+    if (entityId === 'ottobon') return (
+      <span className="text-[11px] font-bold px-2 py-0.5 rounded-md bg-blue-50 text-blue-700 border border-blue-200 inline-flex items-center gap-1">
+        <GraduationCap className="w-3 h-3 text-blue-600" /> Ottobon Academy
+      </span>
+    );
+    if (entityId === 'medcy') return (
+      <span className="text-[11px] font-bold px-2 py-0.5 rounded-md bg-emerald-50 text-emerald-700 border border-emerald-200 inline-flex items-center gap-1">
+        <Stethoscope className="w-3 h-3 text-emerald-600" /> Medcy Healthcare
+      </span>
+    );
+    return (
+      <span className="text-[11px] font-bold px-2 py-0.5 rounded-md bg-purple-50 text-purple-700 border border-purple-200 inline-flex items-center gap-1">
+        <TrendingUp className="w-3 h-3 text-purple-600" /> sBloom Growth
+      </span>
+    );
   };
 
   const filteredReferrals = referrals.filter(r => {
@@ -564,8 +576,14 @@ export default function UserPortal({ currentUser, onOpenSubmitModal }) {
                   <div key={prog.id} className="bg-white rounded-3xl border border-[#E0E0E0] p-7 shadow-sm flex flex-col justify-between space-y-6 hover:border-[#4A154B]/40 transition">
                     <div className="space-y-4">
                       <div className="flex items-center justify-between">
-                        <div className="w-12 h-12 rounded-2xl bg-purple-50 text-2xl flex items-center justify-center border border-purple-100">
-                          {prog.category === 'Healthcare' ? '🏥' : prog.category === 'Education' ? '🎓' : '🏢'}
+                        <div className="w-12 h-12 rounded-2xl bg-purple-50 flex items-center justify-center border border-purple-100 text-[#4A154B]">
+                          {prog.category === 'Healthcare' ? (
+                            <Stethoscope className="w-6 h-6 text-emerald-600" />
+                          ) : prog.category === 'Education' ? (
+                            <GraduationCap className="w-6 h-6 text-indigo-600" />
+                          ) : (
+                            <Building2 className="w-6 h-6 text-blue-600" />
+                          )}
                         </div>
                         <span className="px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 font-bold font-heading text-xs">
                           ₹{Number(prog.reward_amount || 5000).toLocaleString('en-IN')} / Referral
