@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { X, Building2, Gift, Stethoscope, GraduationCap, ShieldCheck } from 'lucide-react';
+import { X, Building2, Gift, Stethoscope, GraduationCap, ShieldCheck, TrendingUp } from 'lucide-react';
 
 export default function OpportunityModal({ isOpen, onClose, onSave, initialData, currentUser }) {
   const isSuperAdmin = currentUser?.role === 'SUPER_ADMIN';
