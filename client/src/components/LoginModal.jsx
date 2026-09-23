@@ -52,8 +52,8 @@ export default function LoginModal({ isOpen, onClose, onLoginSuccess }) {
         body: JSON.stringify({
           name: name.trim(),
           email: email.trim(),
-          organization_name: orgName.trim(),
-          industry,
+          organization_name: orgName.trim() || null,
+          industry: orgName.trim() ? industry : 'Independent / Individual',
           password
         })
       });
@@ -129,7 +129,10 @@ export default function LoginModal({ isOpen, onClose, onLoginSuccess }) {
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-slate-700 mb-1.5">Organization / Clinic / School</label>
+                <label className="block text-xs font-bold text-slate-700 mb-1.5 flex items-center justify-between">
+                  <span>Organization / Clinic / School</span>
+                  <span className="text-[10px] text-slate-400 font-normal">Optional</span>
+                </label>
                 <div className="relative">
                   <Building2 className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
                   <input
@@ -143,16 +146,29 @@ export default function LoginModal({ isOpen, onClose, onLoginSuccess }) {
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-slate-700 mb-1.5">Industry Category</label>
+                <label className="block text-xs font-bold text-slate-700 mb-1.5 flex items-center justify-between">
+                  <span>Industry Category</span>
+                  <span className="text-[10px] text-slate-400 font-normal">{orgName.trim() ? 'Required for org' : 'Disabled (No Org)'}</span>
+                </label>
                 <select
+                  disabled={!orgName.trim()}
                   value={industry}
                   onChange={(e) => setIndustry(e.target.value)}
-                  className="w-full px-3 py-2.5 rounded-xl border border-slate-300 text-xs font-medium text-slate-700 focus:ring-2 focus:ring-blue-500 outline-none bg-white"
+                  className={`w-full px-3 py-2.5 rounded-xl border text-xs font-medium transition outline-none ${
+                    orgName.trim()
+                      ? 'bg-white border-slate-300 text-slate-800 focus:ring-2 focus:ring-blue-500 cursor-pointer shadow-2xs'
+                      : 'bg-slate-100 border-slate-200 text-slate-400 cursor-not-allowed select-none'
+                  }`}
                 >
                   <option value="Healthcare">Healthcare / Clinics / Hospitals</option>
                   <option value="Education">Education / Schools / Institutes</option>
                   <option value="Corporate / Other">Corporate / Brand / Other</option>
                 </select>
+                {!orgName.trim() && (
+                  <p className="text-[10px] text-slate-400 mt-1">
+                    Fill organization name above to enable industry categorization.
+                  </p>
+                )}
               </div>
             </>
           )}
