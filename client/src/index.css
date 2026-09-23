@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  color-scheme: light;
+  background-color: #FDFBF7;
+  color: #1D1C1D;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Clean minimal scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #F7F9FC;
+}
+::-webkit-scrollbar-thumb {
+  background: #E5EAF0;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #CBD5E1;
+}
+
+/* SaaS Design Tokens */
+.bg-saas-bg {
+  background-color: #F7F9FC;
+}
+.bg-saas-navy {
+  background-color: #16324F;
+}
+.bg-saas-dark {
+  background-color: #0B1726;
+}
+.bg-saas-blue {
+  background-color: #2F80ED;
+}
+.text-saas-main {
+  color: #172033;
+}
+.text-saas-muted {
+  color: #667085;
+}
+.text-saas-blue {
+  color: #2F80ED;
+}
+.text-saas-navy {
+  color: #16324F;
+}
+.text-saas-green {
+  color: #27AE60;
+}
+.border-saas {
+  border-color: #E5EAF0;
+}
+
+/* Subtle SaaS Shadow */
+.shadow-saas {
+  box-shadow: 0 1px 3px rgba(16, 24, 40, 0.05), 0 1px 2px rgba(16, 24, 40, 0.03);
+}
+
+.shadow-saas-lg {
+  box-shadow: 0 12px 32px -4px rgba(16, 24, 40, 0.08), 0 4px 12px -2px rgba(16, 24, 40, 0.03);
+}
